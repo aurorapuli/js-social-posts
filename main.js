@@ -3,9 +3,7 @@
 // Milestone 1 - Prendendo come riferimento il layout di esempio presente nell’html, stampiamo i post del nostro feed, prendendo le informazioni che ci servono dall’array di oggetti che già trovate.
 // Milestone 2 - Se clicchiamo sul tasto “Mi Piace” cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
-const buttonLike = document.getElementsByClassName("js-like-button");
 
-console.log(buttonLike);
 
 
 const posts = [
@@ -114,18 +112,39 @@ posts.forEach(element => {
 
 });
 
+const buttonLike = document.getElementsByClassName("js-like-button");
 
 
 
-buttonLike.addEventListner("click",
-   
-    function(){
+// Converte l'HTMLCollection in un array e aggiunge un gestore degli eventi di clic a ciascun elemento
+Array.from(buttonLike).forEach(function(bottone) {
+  bottone.addEventListener("click", function() {
+    // Il tuo codice per gestire l'evento di clic per ciascun pulsante va qui
+    console.log("Pulsante cliccato!");
+    // Aggiungi più codice secondo necessità
+     
 
-        
+    bottone.style.color = "red";
+    
+
+  });
+});
 
 
 
-})
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
 
 
 
