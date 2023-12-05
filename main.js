@@ -83,7 +83,7 @@ posts.forEach(element => {
                        <img class="profile-pic" src="${element.author.image}" alt="${element.author.name}">                    
                    </div>
                    <div class="post-meta__data">
-                       <div class="post-meta__author">Phil Mangione</div>
+                       <div class="post-meta__author">${element.author.name}</div>
                        <div class="post-meta__time">${element.created}</div>
                    </div>                    
                </div>
@@ -113,4 +113,13 @@ posts.forEach(element => {
 });
 
 
+const buttonLike = document.getElementsByClassName("js-like-button");
+
+console.log(buttonLike);
+
+
+
+
+
+  
 
