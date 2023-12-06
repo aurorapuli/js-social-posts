@@ -114,7 +114,7 @@ posts.forEach(element => {
 
 const buttonLike = document.getElementsByClassName("js-like-button");
 
-const contatoreLike = document.getElementsByClassName('js-likes-counter');
+const contatoreLike = document.querySelectorAll('.js-likes-counter');
 
 console.log(contatoreLike);
 
@@ -122,7 +122,7 @@ const idLike = [];
 
 
 // Converte l'HTMLCollection in un array e aggiunge un gestore degli eventi di clic a ciascun elemento
-Array.from(buttonLike).forEach(function(bottone) {
+Array.from(buttonLike).forEach(function(bottone, i) {
   bottone.addEventListener("click", function() {
     // Il tuo codice per gestire l'evento di clic per ciascun pulsante va qui
     console.log("Pulsante cliccato!");
@@ -132,29 +132,26 @@ Array.from(buttonLike).forEach(function(bottone) {
 
     const postId = parseInt(bottone.getAttribute("data-postid"));
 
-    if(idLike.includes(postId)){
+    const contatoreAttuale = parseInt(contatoreLike[i].textContent);
 
+    if (idLike.includes(postId)) {
         idLike.pop(postId);
-
         bottone.style.color = "black";
-
-    } else{
-
+        contatoreLike[i].textContent = contatoreAttuale - 1;
+        
+    } else {
         idLike.push(postId);
-
         bottone.style.color = "red";
+        contatoreLike[i].textContent = contatoreAttuale + 1;
     }
-
-    contatoreLike
-
-    
+});
 
     console.log(idLike);
     
 
   });
            
-});
+
 
 
 
